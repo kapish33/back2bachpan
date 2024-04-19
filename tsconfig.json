@@ -18,6 +18,15 @@
       }
     ],
     "paths": {
+      "@config/*": ["./src/config/*"],
+      "@constants/*": ["./lib/constants/*"],
+      "@sharedLayout/*": ["./components/shared/*"],
+      "@generated": ["./src/generated"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@images/*": ["./src/images/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils/*": ["./src/utils/*"],
       "@/*": ["./*"]
     }
   },
