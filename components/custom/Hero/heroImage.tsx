@@ -11,7 +11,7 @@ export const HeroImage = ({ url, alt }: Props) => {
   return (
     <motion.div
       className=" lg:mt-0 lg:col-span-5 lg:flex"
-      variants={whileInViewAnimation({ type: "right" })}
+      variants={whileInViewAnimation({ type: "up" })}
       initial="initial"
       whileInView="whileInView"
     >
