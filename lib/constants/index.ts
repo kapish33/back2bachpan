@@ -14,7 +14,7 @@ interface navigation {
   };
 }
 
-const NavLink = ({ variant, size, name, href }: navigation): navigation => {
+export const NavLink = ({ variant, size, name, href }: navigation): navigation => {
   return {
     variant: variant,
     size: size,
@@ -25,7 +25,7 @@ const NavLink = ({ variant, size, name, href }: navigation): navigation => {
 
 export const Navigation: Array<navigation> = [
   NavLink({
-    variant: "ghost",
+    variant: "link",
     size: { mobile: "sm", pc: "default" },
     name: "Home",
     href: "/",

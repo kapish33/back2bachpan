@@ -20,6 +20,7 @@
     "paths": {
       "@config/*": ["./src/config/*"],
       "@constants/*": ["./lib/constants/*"],
+      "@appString/*": ["./lib/appString/*"],
       "@sharedLayout/*": ["./components/shared/*"],
       "@generated": ["./src/generated"],
       "@hooks/*": ["./src/hooks/*"],
