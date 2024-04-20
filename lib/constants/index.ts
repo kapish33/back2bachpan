@@ -4,7 +4,7 @@ import { Url } from "next/dist/shared/lib/router/router";
 
 type css = VariantProps<typeof buttonVariants>;
 
-interface navigation {
+export interface navigation {
   variant: css["variant"];
   name: string;
   href: Url;
