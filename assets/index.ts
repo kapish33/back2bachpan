@@ -1,8 +1,8 @@
-// import TestImage from "./hero.png";
+import Home from "./home.png";
 import Hero from "./main-hero.png";
 
 export const assets = {
-//   header: TestImage,
+  homeIcon: Home,
   main: {
     hero: Hero,
   },
