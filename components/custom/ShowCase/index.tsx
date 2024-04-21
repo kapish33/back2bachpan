@@ -7,6 +7,7 @@ import { whileInViewAnimation } from "@/utils/framer.variants";
 interface Props {}
 
 export const ShowCase = ({}: Props): JSX.Element => {
+    // max-w-screen-xl px-4 py-8 mx-auto
   return (
     <>
       <h2 className="text-3xl text-center py-4">

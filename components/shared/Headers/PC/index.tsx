@@ -1,25 +1,28 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Navigation } from "@constants/index";
 import { appStringMap } from "@appString/appStringMap";
 import Image from "next/image";
-// import Logo from "./path/to/your/logo.svg"; // Import your logo
+
 interface Props {
   isMenuOpen: boolean;
   toggleMenu: () => void;
 }
 
 export const PC = ({ isMenuOpen, toggleMenu }: Props): JSX.Element => {
-  const {pages:{Home:{homeIcon}}} = appStringMap
+  const {
+    pages: {
+      Home: { homeIcon },
+    },
+  } = appStringMap;
   return (
     <>
       {/* Logo on the left */}
       <Link href="/" className="w-full" passHref>
         {/* <img src={Logo} alt="Logo" className="h-8 w-auto mr-2" /> */}
-        <Image src={homeIcon} alt="Logo" className="h-8 w-auto mr-2"  />
+        <Image src={homeIcon} alt="Logo" className="h-8 w-auto mr-2" />
       </Link>
 
       {/* Menu for medium-sized devices and above */}

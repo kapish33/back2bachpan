@@ -2,6 +2,8 @@ import { assets } from "@/assets";
 import { HomeLink1, HomeLink2 } from "./AppStringHelper/Home";
 import { FooterData } from "./AppStringHelper/Shared/Footer";
 import { homeImages } from "./AppStringHelper/imagePropsFormer";
+import { showcaseData, showcaseArray } from "./AppStringHelper/ShowCase";
+import { Hero } from "./AppStringHelper/HappyHeartCenter";
 
 export const appStringMap = {
   shared: {
@@ -16,6 +18,13 @@ export const appStringMap = {
       link1: HomeLink1,
       link2: HomeLink2,
       heroImage: homeImages,
+      showcase: {
+        showcaseData,
+        showcaseArray,
+      },
+    },
+    HappyHeartCenter: {
+      hero: Hero,
     },
   },
 };
