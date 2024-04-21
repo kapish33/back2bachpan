@@ -1,8 +1,11 @@
+import { ProgramHero } from "@/components/custom/ProgarmHero";
+import { appStringMap } from "@appString/appStringMap";
+import { ShowCase } from "@/components/custom/ShowCase";
+
 export default function WellnessPrograms() {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-between py-24">
-        2nd Inning Wellness Programs
-      </main>
-    );
-  }
-  
+  const {
+    pages: { SecondInningsWellnessPrograms },
+  } = appStringMap;
+  return <><ProgramHero {...SecondInningsWellnessPrograms.hero} />
+  <ShowCase /></>;
+}

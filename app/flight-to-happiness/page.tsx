@@ -1,8 +1,9 @@
+import { ProgramHero } from "@/components/custom/ProgarmHero";
+import { appStringMap } from "@appString/appStringMap";
+
 export default function FlightToHappiness() {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-between py-24">
-        Flight to Happiness
-      </main>
-    );
-  }
-  
+  const {
+    pages: { FlightToHappiness },
+  } = appStringMap;
+  return <ProgramHero {...FlightToHappiness.hero} />;
+}

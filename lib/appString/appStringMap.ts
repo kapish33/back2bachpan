@@ -3,7 +3,11 @@ import { HomeLink1, HomeLink2 } from "./AppStringHelper/Home";
 import { FooterData } from "./AppStringHelper/Shared/Footer";
 import { homeImages } from "./AppStringHelper/imagePropsFormer";
 import { showcaseData, showcaseArray } from "./AppStringHelper/ShowCase";
-import { Hero } from "./AppStringHelper/HappyHeartCenter";
+import { Hero as FallPreventionHero } from "./AppStringHelper/FallPreventionPrograms";
+import { Hero as FlightToHappinessHero } from "./AppStringHelper/FlightToHappiness";
+import { Hero as HappyHeartCenterHero } from "./AppStringHelper/HappyHeartCenter";
+import { Hero as MeraSathiHelplineHero } from "./AppStringHelper/MeraSathiHelpline";
+import { Hero as SecondInningsWellnessProgramsHero } from "./AppStringHelper/SecondInningsWellnessPrograms";
 
 export const appStringMap = {
   shared: {
@@ -24,7 +28,19 @@ export const appStringMap = {
       },
     },
     HappyHeartCenter: {
-      hero: Hero,
+      hero: HappyHeartCenterHero,
+    },
+    SecondInningsWellnessPrograms: {
+      hero: SecondInningsWellnessProgramsHero,
+    },
+    FlightToHappiness: {
+      hero: FlightToHappinessHero,
+    },
+    MeraSathiHelpline: {
+      hero: MeraSathiHelplineHero,
+    },
+    FallPreventionPrograms: {
+      hero: FallPreventionHero,
     },
   },
 };
