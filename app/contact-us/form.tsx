@@ -1,57 +1,181 @@
-// Assuming you have your Tailwind CSS configuration set up with light and dark mode styles
-
 'use client';
-import { baseMargin, cn } from '@/lib/utils';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { formFields, schema, submitFormData } from './user.form.schema';
-import { allProgramNames } from '@constants/index';
+
+import {
+  userForm as formSchema,
+  selectableOptions,
+  userFormInterface,
+} from '@/schema';
+
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+// import { CITY } from '@/lib/city';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Textarea } from '@/components/ui/textarea';
+import { sheerURL } from '@/server-functions/formSumit';
 
 export default function ContactUsForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
+  const form = useForm<userFormInterface>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+      whatsappNumber: '',
+    },
   });
 
-  const onSubmit = (data: submitFormData) => {
-    console.log(data);
-  };
+  async function onSubmit(values: userFormInterface) {
+    const { email, message, username, whatsappNumber, intrestedProgram } =
+      values;
+    console.log(values);
+    try {
+      const url = sheerURL(
+        username,
+        whatsappNumber,
+        email,
+        message,
+        intrestedProgram
+      );
+
+      const request = await fetch(url);
+      // Call the `crudOperations` function to create a new document
+      // await crudOperations('POST', 'user', { ...values, lang: params });
+
+      // Show a success message to the user
+      toast('We Had Sucessfully Recived Your Response', {
+        description: 'Join The WhatsApp Community For Get updated',
+        // action: {
+        //   label: 'Undo',
+        //   onClick: () => console.log('Undo'),
+        // },
+      });
+
+      // setTimeout(() => {
+      //   window.open(
+      //     'https://chat.whatsapp.com/CS7xHxqryZMICQPha0t986',
+      //     '_blank'
+      //   );
+      // }, 1500);
+    } catch (error) {
+      // Handle any errors that occur during the CRUD operation
+      console.error('Error creating event:', error);
+      // Optionally, show an error message to the user
+      toast('Failed to create event. Please try again later.', {
+        description: 'Some Error Message',
+      });
+    }
+  }
 
   return (
-    <div className={`${baseMargin} py-20 bg-background text-foreground flex justify-center items-center min-h-screen`}>
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div className="mb-4">
-          <label className={cn(formFields({label:"default"}))} htmlFor="program">Select Program</label>
-          {/* Render select dropdown with options from allProgramNames array */}
-          <select id="program" {...register('program', { required: true })} className={cn(formFields({select:"default"}))}>
-            <option value="">Select Program</option>
-            {allProgramNames.map((program, index) => (
-              <option key={index} value={program}>{program}</option>
-            ))}
-          </select>
-        </div>
+    <Form {...form}>
+      <form className='' onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name={'username'}
+          render={({ field }) => (
+            <FormItem className='space-y-3 py-3'>
+              <FormLabel>{'Your Name'}</FormLabel>
+              <FormControl>
+                <Input placeholder={'Enter Your Beautiful Name'} {...field} />
+              </FormControl>
 
-        <div className="mb-4">
-          <label className={cn(formFields({label:"default"}))} htmlFor="firstName">First Name</label>
-          <input id="firstName" {...register('firstName')} className={cn(formFields({input:"default"}))} type="text" placeholder="First Name" />
-          <p className={cn(formFields({error:"default"}))}>{errors.firstName?.message}</p>
-        </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <div className="mb-6">
-          <label className="block text-sm font-bold mb-2" htmlFor="age">Age</label>
-          <input id="age" {...register('age')} className="shadow appearance-none border rounded w-full py-2 px-3 text-input leading-tight focus:outline-none focus:shadow-outline" type="number" placeholder="Age" />
-          <p className={cn(formFields({error:"default"}))}>{errors.age?.message}</p>
-        </div>
+        <FormField
+          control={form.control}
+          name={'email'}
+          render={({ field }) => (
+            <FormItem className='space-y-3 py-3'>
+              <FormLabel>{'Your Email'}</FormLabel>
+              <FormControl>
+                <Input placeholder={'Enter Your Email'} {...field} />
+              </FormControl>
 
-        <div className="flex items-center justify-between">
-          <button className="bg-primary hover:bg-accent text-primary-foreground font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Submit
-          </button>
-        </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name={'whatsappNumber'}
+          render={({ field }) => (
+            <FormItem className='space-y-3 py-3'>
+              <FormLabel>{`Enter Your WhatsApp Number`}</FormLabel>
+              <FormControl>
+                <Input placeholder={'9999488644'} {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name={'intrestedProgram'}
+          render={({ field }) => (
+            <FormItem className='space-y-3 py-3'>
+              <FormLabel>{'For Which Seva You Wanted To Know More'}</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder={null} />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {selectableOptions.map((cityName: any) => (
+                    <SelectItem key={cityName} value={cityName}>
+                      {cityName}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name={'message'}
+          render={({ field }) => (
+            <FormItem className='space-y-3 py-3'>
+              <FormLabel>{'Your Message'}</FormLabel>
+              <FormControl>
+                <Textarea placeholder={'Enter Your Message'} {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button className='md:w-1/3 w-full my-4 ' type='submit'>
+          Submit
+        </Button>
       </form>
-    </div>
+    </Form>
   );
 }

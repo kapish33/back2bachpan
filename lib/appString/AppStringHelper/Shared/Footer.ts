@@ -11,8 +11,8 @@ const FooterRoutes: Array<navigation> = [
   NavLink({
     variant: "link",
     size: { mobile: "sm", pc: "default" },
-    name: "About",
-    href: "/",
+    name: "Conact Us",
+    href: "contact-us",
   }),
   NavLink({
     variant: "link",
