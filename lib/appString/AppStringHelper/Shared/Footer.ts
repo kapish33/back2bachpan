@@ -17,14 +17,14 @@ const FooterRoutes: Array<navigation> = [
   NavLink({
     variant: "link",
     size: { mobile: "sm", pc: "default" },
-    name: "Home",
-    href: "/",
+    name: "About Us",
+    href: "/about-us",
   }),
   NavLink({
     variant: "link",
     size: { mobile: "sm", pc: "default" },
-    name: "Home",
-    href: "/",
+    name: "Terms And Conditions",
+    href: "terms-and-conditions",
   }),
   NavLink({
     variant: "link",

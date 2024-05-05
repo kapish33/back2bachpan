@@ -56,8 +56,7 @@ export default function ContactUsForm() {
       );
 
       const request = await fetch(url);
-      // Call the `crudOperations` function to create a new document
-      // await crudOperations('POST', 'user', { ...values, lang: params });
+      
 
       // Show a success message to the user
       toast('We Had Sucessfully Recived Your Response', {

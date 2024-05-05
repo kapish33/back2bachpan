@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import Headers from '@sharedLayout/Headers';
 import { ThemeProvider } from '@sharedLayout/Theme/theme-provider';
 import { Footer } from '@sharedLayout/Footer';
+import { Toaster } from '@/components/ui/sonner';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Headers />
           {children}
           <Footer />
+          <Toaster position='top-center' />
         </ThemeProvider>
       </body>
     </html>
