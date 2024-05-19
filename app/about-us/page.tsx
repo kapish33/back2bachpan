@@ -13,27 +13,58 @@ export default function AboutUs() {
   } = appStringMap;
   return (
     <>
-      <div className='py-20'>
+      <div className='md:py-10 py-16'>
         {/* Introduction Start */}
-        <section className='Introduction'>
-          <div className='container mx-auto px-4'>
-            <div className='flex flex-wrap items-center justify-center'>
-              <div className='w-full md:w-1/2 lg:w-1/3 mb-8 md:mb-0'>
-                <Image
-                  src={intro.aboutImage.url}
-                  alt={intro.aboutImage.altText}
-                  className='rounded-lg shadow-md'
-                />
+        <section className='py-4'>
+          <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+            <div className='flex justify-between items-center flex-col lg:flex-row md:mt-20'>
+              <div className='w-full lg:w-1/2'>
+                <h1 className='font-manrope text-5xl text-gray-900 font-bold leading-[4rem] mb-7 text-center lg:text-left'>
+                  {intro.h1}
+                </h1>
+                <p className='text-lg text-gray-500  text-center lg:text-left'>
+                  {intro.p1}
+                </p>
+                <p className='text-lg py-2 text-gray-500  text-center lg:text-left'>
+                  {intro.p2}
+                </p>
+                {/* <button className='cursor-pointer py-3 px-8 w-60 bg-indigo-600 text-white text-base font-semibold transition-all duration-500 block text-center rounded-full hover:bg-indigo-700 mx-auto lg:mx-0'>
+                  Join our team
+                </button> */}
               </div>
-              <div className='w-full md:w-1/2 lg:w-2/3 md:pl-12'>
-                <h2 className='text-4xl font-bold mb-4 '>{intro.h1}</h2>
-                <p className='text-lg mb-6 opacity-70'>{intro.p1}</p>
-                <p className='text-lg opacity-70 pb-4'>{intro.p2}</p>
-                <Link
-                  className={cn(buttonVariants({ variant: 'default' }))}
-                  href={intro.button.href}>
-                  {intro.button.buttonText}
-                </Link>
+              <div className='w-full lg:w-1/2 lg:mt-0 md:mt-40 mt-16 max-lg:max-w-2xl'>
+                <div className='grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-3 gap-8'>
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238644.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover md:mt-20 mx-auto min-[450px]:mr-0'
+                  />
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238665.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover mx-auto min-[450px]:ml-0 md:mx-auto'
+                  />
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238684.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover md:mt-20 mx-auto min-[450px]:mr-0 md:ml-0'
+                  />
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238702.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover mx-auto min-[450px]:ml-0 md:mr-0 md:ml-auto'
+                  />
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238720.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover md:-mt-20 mx-auto min-[450px]:mr-0 md:mx-auto'
+                  />
+                  <img
+                    src='https://pagedone.io/asset/uploads/1696238737.png'
+                    alt='Team tailwind section'
+                    className='w-44 h-56 rounded-2xl object-cover mx-auto min-[450px]:ml-0 md:mr-0'
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -45,7 +76,7 @@ export default function AboutUs() {
           <div className='container mx-auto px-4'>
             <h2 className='text-4xl font-bold mb-6 '>{impact.Heroh2}</h2>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              {impact.impactArray.map((impact,key) => {
+              {impact.impactArray.map((impact, key) => {
                 return (
                   <div key={key} className='bg-gray-100 rounded-lg p-6'>
                     <h3 className='text-xl text-black font-semibold mb-4'>
@@ -68,7 +99,7 @@ export default function AboutUs() {
               {communitySpeak.heroHeading}
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              {communitySpeak.speaksArray.map((speaker,key) => (
+              {communitySpeak.speaksArray.map((speaker, key) => (
                 <div
                   key={key}
                   className='dark:bg-white bg-gray-100 rounded-lg p-6'>

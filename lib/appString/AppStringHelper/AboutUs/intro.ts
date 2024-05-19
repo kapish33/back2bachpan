@@ -18,23 +18,12 @@ interface AboutIntroSection {
 
 export const AboutIntroSection: AboutIntroSection = {
   aboutImage: {
-    url: assets.main.hero,
-    altText: 'About Us Hero image',
+    url: assets.main.aboutHero,
+    altText: 'About Us',
   },
-  h1: 'Back To Bachpan',
-  p1: `"Back to Bachpan" is a collaborative social endeavor led by
-    accomplished entrepreneurs, spiritual guides, alumni of
-    prestigious institutions such as IITs and IIMs, and young
-    individuals united by a shared mission. Our aim is to empower
-    the elderly to lead lives that are richer in fulfilment and
-    joy.`,
-  p2: ` We organize a wide range of interactive sessions and
-    activities regularly tailored to the diverse needs of older
-    adults. These programs serve several functions: assisting in
-    acquiring new skills, nurturing connections with similar
-    individuals, promoting independence with a supportive
-    community to rely on in times of need, and instilling a sense
-    of purpose in their lives.`,
+  h1: 'About Us',
+  p1: `We create a supportive ecosystem for seniors by offering sessions and programs designed to help them enhance their health and happiness and create a renewed sense of meaning and purpose in their lives.`,
+  p2: `We partner with residential communities and organizations to provide a distinctive year-long program tailored for seniors. This program encompasses acquiring new skills, cultivating hobbies, group excursions social gatherings, and engaging in community service to share their wealth of knowledge and experience.`,
   button: {
     href: 'contact-us',
     buttonText: 'Learn More',

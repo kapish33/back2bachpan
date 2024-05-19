@@ -23,8 +23,12 @@ export const appStringMap = {
     Home: {
       homeIcon: assets.homeIcon,
       title: 'Empowering Wellness & Connection',
-      description:
-        "Transforming lives through innovative web design and holistic wellness programs. Let's work together to create a brighter future.",
+      description: `Back to Bachpan" stands as a powerful social initiative
+        driven by successful entrepreneurs, spiritual mentors,
+        distinguished alumni of renowned institutions like IITs and
+        IIMs, and passionate young individuals with a common
+        goal. We are dedicated to empowering the elderly for a
+        more fulfilling and joyful life`,
       link1: HomeLink1,
       link2: HomeLink2,
       heroImage: homeImages,
